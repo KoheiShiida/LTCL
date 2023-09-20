@@ -7,14 +7,15 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>アレンジレシピ掲示</h1>
-        <a href='/posts/create'>投稿する</a>
+        <h1>アレンジレシピ掲示板</h1>
+        <a href='/posts/create'>[投稿する]</a>
         <div class='posts'>
             @foreach ($posts as $post)
                 <div class='post'>
                     <h2 class='title'>
                         <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </h2>
+                    <a href="">{{ $post->category->name }}</a>
                     <p class='body'>{{ $post->body }}</p>
                     <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                         @csrf

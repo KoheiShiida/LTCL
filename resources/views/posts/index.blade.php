@@ -5,6 +5,10 @@
         <title>アレンジレシピ掲示板</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <x-app-layout>
+        <x-slot name="header">
+            'index'
+         </x-slot>
     </head>
     <body>
         <h1>アレンジレシピ掲示板</h1>
@@ -23,6 +27,20 @@
                         <button type="button" onclick="deletePost({{ $post->id }})">delete</button> 
                     </form>
                 </div>
+                @auth
+                <!-- Post.phpに作ったisLikedByメソッドをここで使用 -->
+                @if (!$post->isLikedBy(Auth::user()))
+                    <span class="likes">
+                        <i class="fas fa-heart like-toggle" data-post-id="{{ $post->id }}"></i>
+                    <span class="like-counter">{{$post->likes_count}}</span>
+                    </span><!-- /.likes -->
+                @else
+                    <span class="likes">
+                        <i class="fas fa-heart heart like-toggle liked" data-post-id="{{ $post->id }}"></i>
+                    <span class="like-counter">{{$post->likes_count}}</span>
+                    </span><!-- /.likes -->
+                @endif
+                @endauth
             @endforeach
         </div>
         <div class='paginate'>
@@ -38,4 +56,5 @@
             }
         </script>
     </body>
+    </x-app-layout>
 </html>

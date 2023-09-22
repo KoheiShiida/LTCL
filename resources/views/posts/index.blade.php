@@ -7,7 +7,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <x-app-layout>
         <x-slot name="header">
-            'index'
+            【投稿一覧】
          </x-slot>
     </head>
     <body>

@@ -28,7 +28,28 @@ class PostController extends Controller
 
     public function store(Post $post, PostRequest $request)
     {
+        {
+            $input = $request['post'];
+            $post->fill($input)->save();
+            return redirect('/posts/' . $post->id);
+        }
         $input = $request['post'];
+        $post=new Post();
+        
+        $inputs=request()->validate([
+            'title'=>'required|max:255',
+            'body'=>'required|max:255',
+            'image'=>'image'
+        ]);
+        
+        // 画像ファイルの保存場所指定
+        if(request('image')){
+            $filename=request()->file('image')->getClientOriginalName();
+            $inputs['image']=request('image')->storeAs('public/images', $filename);
+        }
+ 
+        // postを保存
+        $post->create($inputs);
     }
     
     public function edit(Post $post)

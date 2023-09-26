@@ -19,13 +19,14 @@
                 <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
             <input type="submit" value="投稿する"/>
-         <div class="category">
+        <div class="category">
             <h2>料理カテゴリー一覧</h2>
             <select name="post[category_id]">
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
             </select>
+            <input id="image" type="file" name="image">
         </div>
         </form>
         <div class="back">[<a href="/">戻る</a>]</div>

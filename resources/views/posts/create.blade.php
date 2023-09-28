@@ -28,6 +28,29 @@
             </select>
             <input id="image" type="file" name="image">
         </div>
+            <div class="ratebutton text-center">
+                <div class="md-radio md-radio-inline d-inline">
+                    <h2>おすすめ度</h2>
+                    <input type="radio" name="taste_intensity" value="1">
+                    <label for="1">1</label>
+                </div>
+                <div class="md-radio md-radio-inline d-inline">
+                    <input type="radio" name="taste_intensity" value="2">
+                    <label for="2">2</label>
+                </div>
+                <div class="md-radio md-radio-inline d-inline">
+                    <input type="radio" name="taste_intensity" value="3" checked>
+                    <label for="3">3</label>
+                </div>
+                <div class="md-radio md-radio-inline d-inline">
+                    <input type="radio" name="taste_intensity" value="4">
+                    <label for="4">4</label>
+                </div>
+                <div class="md-radio md-radio-inline d-inline">
+                    <input type="radio" name="taste_intensity" value="5">
+                    <label for="5">5</label>
+                </div>
+            </div>
         </form>
         <div class="back">[<a href="/">戻る</a>]</div>
 </html>

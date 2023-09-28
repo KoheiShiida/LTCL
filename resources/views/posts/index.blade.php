@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<x-app-layout>
     <head>
-        <meta charset="utf-8">
-        <title>アレンジレシピ掲示板</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <x-app-layout>
         <x-slot name="header">
             【投稿一覧】
          </x-slot>
@@ -19,12 +13,12 @@
                     <h2 class='title'>
                         <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </h2>
-                    <a href="">{{ $post->category->name }}</a>
+                    <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
                     <p class='body'>{{ $post->body }}</p>
                     <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button type="button" onclick="deletePost({{ $post->id }})">delete</button> 
+                        <button type="button" onclick="deletePost({{ $post->id }})">削除する</button> 
                     </form>
                 </div>
                 @auth
@@ -57,4 +51,3 @@
         </script>
     </body>
     </x-app-layout>
-</html>

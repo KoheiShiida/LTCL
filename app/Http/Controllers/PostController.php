@@ -7,14 +7,17 @@ use App\Http\Requests\PostRequest;
 use App\Models\Category;
 use App\Models\Like;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Reviews;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     public function index(Post $post)
     {
-        return view('posts.index')->with(['posts' => $post->getPaginateByLimit()]);
+        
         $user = auth()->user();
         $posts = Post::withCount('likes')->orderByDesc('updated_at')->get();
+        return view('posts.index')->with(['posts' => $post->getPaginateByLimit()]);
         return view('posts.index', [
             'posts' => $posts,
         ]);

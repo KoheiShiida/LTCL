@@ -6,7 +6,7 @@
     </head>
     <body>
         <h1>アレンジレシピ掲示板</h1>
-        <form action="/posts" method="POST">
+        <form action="/posts" method="POST"  enctype="multipart/form-data">
             @csrf
             <div class="title">
                 <h2>投稿画面</h2>
@@ -18,6 +18,9 @@
                 <textarea name="post[body]" placeholder="おすすめポイントを書いてください。">{{ old('post.body') }}</textarea>
                 <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
+             <div class="image">
+                <input type="file" name="image">
+            </div>
             <input type="submit" value="投稿する"/>
         <div class="category">
             <h2>料理カテゴリー一覧</h2>
@@ -26,7 +29,6 @@
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
             </select>
-            <input id="image" type="file" name="image">
         </div>
             <div class="ratebutton text-center">
                 <div class="md-radio md-radio-inline d-inline">

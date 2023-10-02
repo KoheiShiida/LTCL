@@ -17,6 +17,9 @@
                 <p>{{ $post->body }}</p>
                 <a href="">{{ $post->category->name }}</a>
             </div>
+             <div>
+                <img src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
+            </div>
         </div>
         <div class="footer">
             <a href="/">戻る</a>

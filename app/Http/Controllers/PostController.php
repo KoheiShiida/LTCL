@@ -9,6 +9,7 @@ use App\Models\Like;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Reviews;
 use Illuminate\Http\Request;
+use Cloudinary;
 
 class PostController extends Controller
 {
@@ -31,8 +32,12 @@ class PostController extends Controller
 
     public function store(Post $post, PostRequest $request)
     {
+        $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+        //dd($image_url);
         {
             $input = $request['post'];
+            $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+            $input += ['image_url' => $image_url];
             $post->fill($input)->save();
             return redirect('/posts/' . $post->id);
         }

@@ -1,7 +1,7 @@
 <?php
 use App\Models\Category;
 
-class CategoryController extends Controller
+class CategoryController extends PostController
 {
     public function index(Category $category)
         {

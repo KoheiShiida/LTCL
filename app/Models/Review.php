@@ -14,14 +14,13 @@ class Review extends Model
         return $this->hasMany(Post::class);  
     }
     
-    public function category()
+    public function review()
     {
         return $this->belongsTo(Review::class);
     }
     
-    public function getByCategory(int $limit_count = 5)
+    public function getByReview(int $limit_count = 5)
     {
         return $this->posts()->with('review')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
 }
-

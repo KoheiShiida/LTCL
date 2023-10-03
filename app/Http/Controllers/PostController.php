@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Requests\PostRequest;
 use App\Models\Category;
+use App\Models\Review;
 use App\Models\Like;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Reviews;
 use Illuminate\Http\Request;
 use Cloudinary;
+
 
 class PostController extends Controller
 {
@@ -79,9 +80,11 @@ class PostController extends Controller
         return redirect('/');
     }
     
-    public function create(Category $category)
+    public function create(Category $category, Review $review)
     {
         return view('posts.create')->with(['categories' => $category->get()]);
+        //return view('posts.create')->with(['reviews' => $review->get()]);
+    
     }
     
     public function like(Request $request)

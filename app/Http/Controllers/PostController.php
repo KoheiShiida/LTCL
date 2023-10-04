@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Requests\PostRequest;
 use App\Models\Category;
-use App\Models\Review;
 use App\Models\Like;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -80,11 +79,9 @@ class PostController extends Controller
         return redirect('/');
     }
     
-    public function create(Category $category, Review $review)
+    public function create(Category $category,Request $request )
     {
         return view('posts.create')->with(['categories' => $category->get()]);
-        //return view('posts.create')->with(['reviews' => $review->get()]);
-    
     }
     
     public function like(Request $request)

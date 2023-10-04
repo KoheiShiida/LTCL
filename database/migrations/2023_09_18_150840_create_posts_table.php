@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('title', 50);
             $table->string('body', 200);
+            $table->string('review',10);
             $table->timestamps();
             $table->softDeletes();
             $table->string('image_url'); 

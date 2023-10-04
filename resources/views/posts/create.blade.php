@@ -18,9 +18,9 @@
                 <textarea name="post[body]" placeholder="おすすめポイントを書いてください。">{{ old('post.body') }}</textarea>
                 <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
-            <div class='rev'>
+            <div class='review'>
                 <h2>評価</h2>
-                <textarea name="post[rev]" placeholder='0～１００で入力してください。'>{{ old('post.rev') }}</textarea>
+                <textarea name="post[review]" placeholder='0～１００で入力してください。'>{{ old('post.review') }}</textarea>
             </div>
              <div class="image">
                 <input type="file" name="image">

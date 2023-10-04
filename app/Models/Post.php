@@ -16,7 +16,7 @@ class Post extends Model
     'category_id',
     'user_id',
     'image_url',
-    'review_id',
+    'review',
 ];
     public function getByLimit(int $limit_count = 10)
     {

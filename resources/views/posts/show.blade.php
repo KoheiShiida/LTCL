@@ -15,6 +15,8 @@
             <div class="content_post">
                 <h3>本文</h3>
                 <p>{{ $post->body }}</p>
+                <h3>評価点（１００点満点）</h3>
+                <p class='review'>{{$post->review}}点/100点</p>
                 <a href="">{{ $post->category->name }}</a>
             </div>
              <div>

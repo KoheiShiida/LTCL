@@ -14,8 +14,12 @@
                         <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </h2>
                     <p class='body'>{{ $post->body }}</p>
+                    <h3>評価点（１００点満点中）</h3>
                     <p class='review'>{{$post->review}}点/100点</p>
                     <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
+                    <div>
+                        <img src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
+                    </div>
                     <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                         @csrf
                         @method('DELETE')

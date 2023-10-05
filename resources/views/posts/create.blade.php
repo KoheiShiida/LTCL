@@ -18,8 +18,8 @@
                 <textarea name="post[body]" placeholder="おすすめポイントを書いてください。">{{ old('post.body') }}</textarea>
                 <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
-            <div class='review'>
-                <h2>評価</h2>
+             <div class='review'>
+                <h2>評価（１００点満点）</h2>
                 <textarea name="post[review]" placeholder='0～１００で入力してください。'>{{ old('post.review') }}</textarea>
             </div>
              <div class="image">

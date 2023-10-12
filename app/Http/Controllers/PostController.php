@@ -26,8 +26,9 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        return view('posts.show')->with(['post' => $post]);
-    
+        $comments = $post->comments()->paginate(10);
+        return view('posts.show')->with(['post' => $post, 'comments'=>$comments]);
+        
     }
 
     public function store(Post $post, PostRequest $request)
@@ -107,5 +108,10 @@ class PostController extends Controller
             'post_likes_count' => $post_likes_count,
         ];
         return response()->json($param); // JSONデータをjQueryに返す
+    }
+    
+    public function comment()
+    {
+        return view('posts.comment');
     }
 }

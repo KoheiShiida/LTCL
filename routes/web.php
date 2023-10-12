@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -24,7 +25,7 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
     Route::get('/posts/{post}/edit', 'edit')->name('edit');
 });
 
-Route::get('/categories/{category}', [CategoryController::class,'index'])->middleware("auth");
+Route::get('/categories/{category}', [CategoryController::class,'index']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -36,6 +37,8 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/posts/create', [PostController::class, 'create']);  //投稿フォームの表示
 Route::post('/posts', [PostController::class, 'store']);  //画像を含めた投稿の保存処理
-Route::get('/posts/{post}', [PostController::class, 'show']);
+Route::get('/posts/{post}', [PostController::class, 'show'])->name('show');
+
+Route::post('/posts/posts', [CommentController::class,'store'])->name('comment.store');
 
 require __DIR__.'/auth.php';

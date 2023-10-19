@@ -47,4 +47,16 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class);  
     }
+    
+    public function posts()
+    {
+        return $this->hasMany('App\Models\Like');
+    }
+    
+    protected $table = 'posts';
+
+    public function likeCount()
+    {
+        return $this->likes->count();
+    }
 }

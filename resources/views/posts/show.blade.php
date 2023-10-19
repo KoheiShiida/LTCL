@@ -75,6 +75,11 @@
         	</div>
         @endif
     </div>
+    <div class="point">
+            <p>評価</h2>
+        <textarea name="post[point]" placeholder="５段階で評価してください。">{{ old('post.point') }}</textarea>
+            <p class="point__error" style="color:red">{{ $errors->first('post.point') }}</p>
+    </div>
  
     <div class="mt-4">
 	    <button type="submit" class="btn btn-primary">
@@ -91,12 +96,13 @@
 
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <body>
-        <h1>Blog Name</h1>
+        <h1>コメントと評価</h1>
         <div class='comments'>
             @foreach ($comments as $comment)
                 <div class='comment'>
                     <h2 class='name'>{{ $comment->name }}</h2>
                     <p class='body'>{{ $comment->comment }}</p>
+                    <p class='point'>{{$comment->point}}</p>
                 </div>
             @endforeach
         </div>

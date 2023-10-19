@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RankingController;
 
 
 
@@ -40,5 +41,8 @@ Route::post('/posts', [PostController::class, 'store']);  //画像を含めた�
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('show');
 
 Route::post('/posts/posts', [CommentController::class,'store'])->name('comment.store');
+
+
+Route::get('/ranking', [RankingController::class,'index']);
 
 require __DIR__.'/auth.php';

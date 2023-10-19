@@ -12,6 +12,7 @@ class Comment extends Model
     	'post_id',
         'name',
         'comment', 
+        'point'
     ];
     
     public function getPaginateByLimit(int $limit_count = 10)

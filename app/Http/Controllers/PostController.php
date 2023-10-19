@@ -9,6 +9,7 @@ use App\Models\Like;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Cloudinary;
+use DB;
 
 
 class PostController extends Controller
@@ -22,6 +23,9 @@ class PostController extends Controller
         return view('posts.index', [
             'posts' => $posts,
         ]);
+        
+         $likes = Like::withCount('posts')->take(5)->get();
+        dd($likes);
     }
 
     public function show(Post $post)
@@ -114,4 +118,11 @@ class PostController extends Controller
     {
         return view('posts.comment');
     }
+    
+    public function post()
+    {
+        $products = Product::withCount('likes')->orderBy('likes_count', 'desc')->paginate();
+        return $products;
+    }
+    
 }

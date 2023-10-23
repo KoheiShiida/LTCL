@@ -17,7 +17,6 @@
                     <h3>評価点（１００点満点中）</h3>
                     <p class='review'>{{$post->review}}点/100点</p>
                     <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
-                    
                     <div>
                         <img src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
                     </div>
@@ -41,15 +40,8 @@
                     </span><!-- /.likes -->
                 @endif
                 @endauth
-                
-               
-                
             @endforeach
         </div>
-        <div class='paginate'>
-            {{ $posts->links() }}
-        </div>
-        
         <script>
             function deletePost(id) {
                 'use strict'
@@ -59,6 +51,6 @@
                 }
             }
         </script>
+       
     </body>
-   ログインユーザー： {{ Auth::user()->name }}
     </x-app-layout>

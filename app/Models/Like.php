@@ -23,4 +23,9 @@ class Like extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
+    public function getByLike(int $limit_count = 5)
+    {
+         return $this->post()->likes()->with('like')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    }
 }

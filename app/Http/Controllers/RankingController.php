@@ -12,5 +12,8 @@ class RankingController extends Controller
     {
         $rankings = Post::withCount('likes')->orderBy('likes_count', 'desc')->get();
         return view('posts.ranking', compact('rankings'));
+        
+        return view('ranking.index');
+
     }
 }

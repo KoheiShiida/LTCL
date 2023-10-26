@@ -18,6 +18,7 @@
                 <h3>評価点（１００点満点）</h3>
                 <p class='review'>{{$post->review}}点/100点</p>
                 <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
+                
             </div>
              <div>
                 <img src="{{ $post->image_url }}" alt="画像が読み込めません。"/>

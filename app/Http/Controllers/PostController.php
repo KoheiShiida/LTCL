@@ -22,10 +22,13 @@ class PostController extends Controller
         return view('posts.index')->with(['posts' => $post->getPaginateByLimit()]);
         return view('posts.index', [
             'posts' => $posts,
+            'like' => $like,
         ]);
         
-         $likes = Like::withCount('posts')->take(5)->get();
-        dd($likes);
+        
+        $likes = Like::withCount('posts')->take(5)->get();
+        
+        
     }
 
     public function show(Post $post)
@@ -119,10 +122,10 @@ class PostController extends Controller
         return view('posts.comment');
     }
     
+    
     public function post()
     {
         $products = Product::withCount('likes')->orderBy('likes_count', 'desc')->paginate();
         return $products;
     }
-    
 }

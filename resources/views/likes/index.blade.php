@@ -5,20 +5,18 @@
          </x-slot>
     </head>
     <body>
-       <p class="text-2xl ...">アレンジレシピ掲示板</p>
-        <button class="bg-sky-500/50 ..."><a href='/posts/create'>[投稿する]</a></button>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 xl:gap-8">
+        <h1>アレンジレシピ掲示板</h1>
+        <a href='/posts/create'>[投稿する]</a>
+        <div class='posts'>
             @foreach ($posts as $post)
-                <div class=>
+                <div class='post'>
                     <h2 class='title'>
-                        <p class="text-2xl ..."><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></p>
-                        
+                        <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </h2>
-                    <p class="text-xl ...">{{ $post->body }}</p>
+                    <p class='body'>{{ $post->body }}</p>
                     <h3>評価点（１００点満点中）</h3>
-                    <p class="text-sky-400">{{$post->review}}点/100点</p>
-                    <p class="underline decoration-4 ..."><a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a></p>
-                    
+                    <p class='review'>{{$post->review}}点/100点</p>
+                    <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
                     <div>
                         <img src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
                     </div>
@@ -27,7 +25,7 @@
                         @method('DELETE')
                         <button type="button" onclick="deletePost({{ $post->id }})">削除する</button> 
                     </form>
-                
+                </div>
                 @auth
                 <!-- Post.phpに作ったisLikedByメソッドをここで使用 -->
                 @if (!$post->isLikedBy(Auth::user()))
@@ -42,13 +40,8 @@
                     </span><!-- /.likes -->
                 @endif
                 @endauth
-                </div>
             @endforeach
         </div>
-        <div class='paginate'>
-            {{ $posts->links() }}
-        </div>
-        
         <script>
             function deletePost(id) {
                 'use strict'
@@ -58,6 +51,6 @@
                 }
             }
         </script>
+       
     </body>
-   ログインユーザー： {{ Auth::user()->name }}
     </x-app-layout>

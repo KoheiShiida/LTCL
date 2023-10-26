@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RankingController;
+use App\Http\Controllers\LikeController;
 
 
 
@@ -44,5 +45,9 @@ Route::post('/posts/posts', [CommentController::class,'store'])->name('comment.s
 
 
 Route::get('/ranking', [RankingController::class,'index']);
+
+Route::get('/likes', [LikeController::class,'index']);
+
+Route::get('/posts/ranking', [RankingController::class, 'ranking']);
 
 require __DIR__.'/auth.php';

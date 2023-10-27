@@ -1,7 +1,7 @@
 <x-app-layout>
     <head>
         <x-slot name="header">
-            【投稿一覧】
+            いいね一覧
          </x-slot>
     </head>
     <body>

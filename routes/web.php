@@ -44,10 +44,12 @@ Route::get('/posts/{post}', [PostController::class, 'show'])->name('show');
 Route::post('/posts/posts', [CommentController::class,'store'])->name('comment.store');
 
 
-Route::get('/ranking', [RankingController::class,'index']);
+Route::get('/ranking', [RankingController::class,'index'])->name('ranking');
 
-Route::get('/likes', [LikeController::class,'index']);
+Route::get('/likes', [LikeController::class,'index'])->name('likes');
 
 Route::get('/posts/ranking', [RankingController::class, 'ranking']);
+
+
 
 require __DIR__.'/auth.php';

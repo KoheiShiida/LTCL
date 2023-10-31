@@ -13,16 +13,16 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('TOPページ') }}
                     </x-nav-link>
                     <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
-                        {{ __('Index') }}
+                        {{ __('投稿一覧') }}
                     </x-nav-link>
                     <x-nav-link :href="route('likes')" :active="request()->routeIs('likes')">
-                        {{ __('likes') }}
+                        {{ __('いいね一覧') }}
                     </x-nav-link>
                     <x-nav-link :href="route('ranking')" :active="request()->routeIs('ranking')">
-                        {{ __('ranking') }}
+                        {{ __('いいね数ランキング') }}
                     </x-nav-link>
                     
                 </div>

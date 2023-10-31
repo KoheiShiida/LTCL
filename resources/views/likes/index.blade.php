@@ -7,7 +7,7 @@
     <body>
         <h1>アレンジレシピ掲示板</h1>
         <a href='/posts/create'>[投稿する]</a>
-        <div class='posts'>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 xl:gap-8">
             @foreach ($posts as $post)
                 <div class='post'>
                     <h2 class='title'>

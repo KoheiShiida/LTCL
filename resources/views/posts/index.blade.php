@@ -1,10 +1,13 @@
 <x-app-layout>
     <head>
         <x-slot name="header">
-            【投稿一覧】
+            <img src=https://res.cloudinary.com/ds8a8x3ed/image/upload/v1698740966/%E3%83%98%E3%83%83%E3%83%80%E3%83%BC_szandn.jpg />
          </x-slot>
     </head>
     <body>
+        
+    
+        
        <p class="text-2xl ...">アレンジレシピ掲示板</p>
         <button class="bg-sky-500/50 ..."><a href='/posts/create'>[投稿する]</a></button>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 xl:gap-8">
@@ -47,8 +50,7 @@
         </div>
         <div class='paginate'>
             {{ $posts->links() }}
-        </div>
-        
+        </div>   
         <script>
             function deletePost(id) {
                 'use strict'

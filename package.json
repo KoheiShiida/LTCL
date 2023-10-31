@@ -19,4 +19,9 @@
         "vue": "^3.3.4",
         "vue-star-rating": "^1.7.0"
     }
+     "scripts": {
+        "dev": "vite",
+        "build": "vite build", 
+        "heroku-postbuild": "npm run build"
+    },
 }

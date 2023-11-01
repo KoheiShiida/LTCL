@@ -52,4 +52,5 @@ Route::get('/posts/ranking', [RankingController::class, 'ranking']);
 
 
 
+
 require __DIR__.'/auth.php';
